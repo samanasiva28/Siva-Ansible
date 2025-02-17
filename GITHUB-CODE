@@ -1,0 +1,10 @@
+---
+- hosts: all
+  connection: ssh
+
+  tasks:
+    - name: get the code from the repository
+      git:
+        repo: "https://github.com/samanasiva28/docker-jenkins.git"
+        dest: "/opt/git"
+        version: "master"
