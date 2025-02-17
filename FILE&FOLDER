@@ -1,0 +1,16 @@
+# TO CREATE A FILE AND FOLDER USING ANSIBLE
+---
+- hosts: all
+  connection: ssh
+
+  tasks:
+    - name: create a file using ansible
+      file:
+        path: "file1.txt"
+        state: touch
+
+
+    - name: create a directory using ansible
+      file:
+        path: "folder1"
+        state: directory
