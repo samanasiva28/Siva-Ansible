@@ -1,0 +1,11 @@
+---
+- hosts: all
+  connection: ssh
+
+  tasks:
+    - name: create a user in the linux
+      user: name=myansible state=present
+
+    - name: create a group in the linux
+      group: name=student state=present
+~                                      
