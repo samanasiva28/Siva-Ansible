@@ -1,0 +1,32 @@
+# INSTALL EPCL
+sudo yum install epel-release -y
+# INSTALL ANSIBLE
+sudo yum install ansible -y
+# INSTALL ANSIBLE DEPENDENCI PYTHON  USING PIP
+sudo yum install python3 python3-pip -y
+
+# EDIT THE FILE 
+vi /etc/ssh/sshd_config
+systemctl restart sshd
+ # SET A PASSWORD FOR THE ROOT
+passwd root
+
+# GENERATE A KEY 
+ssh-keygen
+
+#GO TO ANSIBLE DEFAULT PATH
+cd /etc/ansible
+
+# PLACE THE SLAVE IPS IN THE HOSTS FILE ALONG WITH GROUP NAME
+vi hosts
+[dev]
+[slave-ip]
+
+
+
+# PERFORM THE SAME STEPS IN SLAVE SERVERS LIKE { EDIT THE /etc/ssh/sshd_config,set a passwd to the user, }
+
+
+
+check the connection at master 
+ansible all -m ping 
