@@ -1,0 +1,24 @@
+---
+- hosts: all
+  connection: ssh
+
+  tasks:
+    - name: Install a httpd server
+      yum:
+        name: httpd
+        state: present
+
+    - name: Start the httpd service
+      service:
+        name: httpd
+        state: started
+
+    - name: Create a file
+      file:
+        path: "/var/www/html/index.html"
+        state: touch
+
+    - name: Add some content to the file
+      copy:
+        src: "app.yml"       # THE APPLICATION CODE IS PLACED IN ANOTHER FILE AND IN "src" we mention the file name
+        dest: "/var/www/html/index.html"
